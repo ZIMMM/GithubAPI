@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en-US">
 <head>
   <meta charset="utf-8">
@@ -6,77 +6,31 @@
   <title>Github API</title>
   
   
-  <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="js/script1.js"> </script>
 </head>
 
 <body>
-  <div id="in">
+  <div class="login">
   
      
 	  
     <input type="text" id="username" placeholder="Github username...">
+	 <input type="password" placeholder="Password" id="password"/>
 	
 	
+	<a href="javascript:logIn()">LOG IN</a>	 
 	
-	 <a href="#" id="gitbutton1">Pull User Data</a>
-	 
-	 <div id="APIdata" class="clearfix"></div> 
-	 
+		 
   </div>
+	
+	 <div id="APIdata" class="clearfix">
+	 
+	 
+	 </div> 
+
   
   
-  
-  <script type="text/javascript">
-$(function(){
-  $('#gitbutton1').on('click', function(e){
-    e.preventDefault();
-    
-    
-    var username = $('#username').val();
-    var userInfo   = 'https://api.github.com/users/'+username;
  
-    requestJSON(userInfo, function(json) {
-      if(json.message == "Not Found" || username == '') {
-        $('#APIdata').html("<h2>No User Info Found</h2>");
-      }
-  
-      else {                                                 // assigning variables to the json data
-        var fullname   = json.name;
-        var username   = json.login;
-        var aviurl     = json.avatar_url;
-        var profileurl = json.html_url;
-        var location   = json.location;
-        var followersnum = json.followers;
-        var followingnum = json.following;
-        var reposnum     = json.public_repos;
-        
-        if(fullname == undefined) { fullname = username; } // if there is no name it just becomes username
-		
-		//below.... making all the variables one so that it can be outputted easily 1 (formatting!)
-        
-        var outhtml = '<h2>'+fullname+' <span class="smallname">(@<a href="'+profileurl+'" target="_blank">'+username+'</a>)</span></h2>';
-        outhtml = outhtml + '<div class="ghcontent"><div class="avi"><a href="'+profileurl+'" target="_blank"><img src="'+aviurl+'" width="80" height="80" alt="'+username+'"></a></div>';
-        outhtml = outhtml + '<p>Followers: '+followersnum+' - Following: '+followingnum+'<br>Repos: '+reposnum+'</p></div>';
-        outhtml = outhtml + '<div class="repolist clearfix">';
-		outputPageContent();
-		
-   function outputPageContent() {
-       
-          $('#APIdata').html(outhtml);                // this prints the apidata in the blank div section in the html
-        }
-		 } // end else statement
-    });	// end requestJSON Ajax call
-  }); // end click event handler
-  function requestJSON(url, callback) {         // Javascript Jquery requestjson function
-    $.ajax({
-      url: url,
-      complete: function(xhr) {
-        callback.call(null, xhr.responseJSON);          
-      }
-    });
-  }
-  });
-  </script>
 </body>
 </html>
