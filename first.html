@@ -1,52 +1,115 @@
 <!DOCTYPE html>
 <html lang="en-US">
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="Content-Type" content="text/html">
-  
-  <title>Github API</title>
-  
-  
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+						<title>Github API</title>
+						
+					</head>   
+					<style>
 
-</head>
+ h1 {
+    text-align: center;
+}
+html,body,h1,h2,h3,h4,h5,h6 {font-family: "Roboto", sans-serif}
+					</style>
+					<body class="w3-light-grey">
+						<header>
+							<h1>Github API info display and follower graph</h1>
 
-<body>
-  <div class="login">
-  
-     
-	  
-    <input type="text" id="username" placeholder="Github username...">
-	 <input type="password" placeholder="Password" id="password"/>
-	
-	
-	<a href="javascript:logIn()" >Show User And Follower Graph</a>	 
-	
-		 
-  </div>
-	
-	 <div id="APIdata" class="clearfix">
-	 
-	 
-	 </div> 
+						</header>
+						<!-- Page Container -->
+						<div class="w3-content w3-margin-top" style="max-width:1400px;">
 
-  
+							<!-- The Grid -->
+							<div class="w3-row-padding">
 
-  	<div>
-    
-  		
-  	
-	<div id="graph-area" > </div>
 
-	</div>
-	
-	
-	
-		
+								<div class="w3-two-third">
 
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.min.js"></script>
-   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	<script src="js/script1.js"> </script>
-	<script src="js/script2.js"> </script>
- 
-</body>
-</html>
+									<!-- login container -->
+									<div class="w3-container">
+
+										<div class="w3-white w3-card-4">
+
+											<h2 style="color:green;">
+												<b> Login Details Of Current User  </b>
+											</h2>
+
+											<div class="w3-container">
+												<!-- login boxes-->
+												<input type="text" id="username" placeholder="Github username..."> 
+													<input type="password" placeholder="Password" id="password"/>
+
+												</div>
+												<br>	 
+
+													<div class="w3-container">
+														<a href="javascript:logIn()" class="w3-btn w3-black">Show User And Follower Graph</a>
+
+
+													</div>
+
+													<br>	 
+
+
+														<div class="w3-container">
+															<p> dont have a password for private info ? just input your username above and press the button below for the graph only :)</p>
+															<a href="javascript:NoPass()" class="w3-btn w3-black">Show Graph Only</a>
+
+														</div>         	 
+														<br>
+														</div>
+
+													</div>
+
+													<!--    end of the login container      -->
+
+													<br>
+
+														<!--data container -->
+														<div class="w3-two-third">
+
+															<div class="w3-container w3-card-4">
+
+																<h2 style="color:green;">This area will display API data  </h2>
+																<div id="APIdata" >  </div> 
+
+															</div>
+
+														</div>
+
+														<!-- end of data container -->
+														<br>
+
+															<!-- graph container -->
+															<div class="w3-two-third">
+
+																<div class="w3-container w3-card-4">
+																	<h2 style="color:green;">   This area shows your follower connections and the connections they have aswell.  </h2>
+																	<div id="graph-area" >
+																	</div>
+																</div>
+
+
+
+															</div>
+															<!-- end of graph container -->
+
+
+															<!-- End Grid -->
+														</div>
+
+														<!-- End Page Container -->
+													</div>
+
+													<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.12.0/d3.min.js"/>
+													<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"/>
+													<script src="js/script.js"> </script>
+													<script src="js/script2.js"> </script>
+
+
+												</body>
+											</html>
