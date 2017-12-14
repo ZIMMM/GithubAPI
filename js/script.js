@@ -8,7 +8,7 @@ var repoCache = {};
 		.classed("svg-container", true);
 	var svg = svgDiv.append("svg")
    		.attr("preserveAspectRatio", "xMinYMin meet")
-   		.attr("viewBox", "0 0 1000 300")
+   		.attr("viewBox", "0 0 1000 500")
    		.classed("svg-content-responsive", true);
 
    	var simulation;
@@ -37,6 +37,9 @@ function logIn(){
         var followersnum = result.followers;
         var followingnum = result.following;
         var reposnum     = result.public_repos;
+		var bio        = result.bio;
+		var collaborators = result.collaborators;
+		
         
         if(fullname == undefined) { fullname = username; } // if there is no name it just becomes username
 		
@@ -44,7 +47,7 @@ function logIn(){
         
         var outhtml = '<h2>'+fullname+' <span class="smallname">(@<a href="'+profileurl+'" target="_blank">'+username+'</a>)</span></h2>';
         outhtml = outhtml + '<div class="ghcontent"><div class="avi"><a href="'+profileurl+'" target="_blank"><img src="'+aviurl+'" width="80" height="80" alt="'+username+'"></a></div>';
-        outhtml = outhtml + '<p>Followers: '+followersnum+' - Following: '+followingnum+'<br>Repos: '+reposnum+'</p></div>';
+        outhtml = outhtml + '<p>Followers: '+followersnum+' - Following: '+followingnum+'<br>Repos: '+reposnum+'<br>Bio:'+bio+'<br>Location:'+location+'<br>Collaborators:'+collaborators+'    (this is private info)'+'</p></div>';
         outhtml = outhtml + '<div class="repolist clearfix">';
 		outputPageContent();  // outputs info on github user
 		followers(username);  // prints graph of user and followers
@@ -108,7 +111,7 @@ function auth(url, onSuccess, onFail){ // github auth function
 		simulation = d3.forceSimulation()
 		    .force("link", d3.forceLink().id(function(d) { return d.id; }).distance(100))
 		    .force("charge", d3.forceManyBody())
-		    .force("center", d3.forceCenter(300, 200));
+		    .force("center", d3.forceCenter(500, 150));
 
 		var link = svg.append("g").attr("class", "links").selectAll("line").data(graph.links)
 			.enter().append("line")
